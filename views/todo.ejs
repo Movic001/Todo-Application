@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&amp;display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <title>Todo List</title>
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #ebe5e5;
+        }
+
+        /* Header (Navigation Bar) */
+        header {
+            background-color: #333;
+            color: white;
+            padding: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 98%;
+            z-index: 1000;
+            height: 2rem;
+        }
+
+        header .logo a {
+            font-size: 24px;
+            font-weight: bold;
+            color: white;
+            text-decoration: none;
+        }
+
+        /* Navigation Links */
+        nav ul {
+            list-style-type: none;
+            padding: 0;
+            display: flex;
+            gap: 20px;
+        }
+
+        nav ul li {
+            padding: 10px;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+        }
+
+        nav ul li:hover {
+            background-color: #444;
+        }
+
+        /* Hamburger Menu (Visible on Mobile) */
+        .hamburger {
+            display: none;
+            font-size: 30px;
+            cursor: pointer;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 50px auto;
+            padding: 20px;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            margin-top: 10rem;
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+
+        .todo-form {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 20px;
+        }
+
+        .todo-form input[type="text"] {
+            flex: 1;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-family: 'Roboto', sans-serif;
+            font-size: 0.95rem;
+        }
+
+        .todo-form button {
+            padding: 10px 15px;
+            background-color: #28a745;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        .todo-form button:hover {
+            background-color: #218838;
+        }
+
+        .todo-list {
+            margin-top: 20px;
+        }
+
+        .todo-list ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .todo-list li {
+            padding: 10px;
+            border-bottom: 1px solid #ccc;
+        }
+
+        .todo-list li:last-child {
+            border-bottom: none;
+        }
+
+        /* Media Queries for Small Screens */
+        @media screen and (max-width: 768px) {
+            nav ul {
+                display: none;
+                flex-direction: column;
+                width: 100%;
+                background-color: #333;
+                position: absolute;
+                top: 70px;
+                left: 0;
+                padding: 10px 0;
+                z-index: 999;
+            }
+
+            nav ul li {
+                width: 100%;
+                text-align: left;
+            }
+
+            nav ul li a {
+                padding: 10px 20px;
+                width: 100%;
+                display: block;
+                line-height: 0rem;
+            }
+
+            .hamburger {
+                display: block;
+            }
+        }
+
+        nav ul.open {
+            display: flex;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="logo">
+            <a href="/">MOVIC-TodoApp</a>
+        </div>
+
+        <!-- Hamburger Menu for Mobile -->
+        <div class="hamburger" id="menu-toggle">
+            <i class="fas fa-bars"></i>
+        </div>
+
+        <!-- Navigation Links -->
+        <nav>
+            <ul id="nav-menu">
+                <li><a href="/">Home</a></li>
+                <li><a href="/">Todo</a></li>
+                <li><a href="/items">List</a></li>
+                <li><a href="/contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="container">
+        <h1>Todo List</h1>
+        <form action="/todo" method="POST" class="todo-form">
+            <input type="text" name="todo" placeholder="Add a new todo..." required>
+            <button type="submit">Add</button>
+        </form>
+    </div>
+
+    <script>
+
+        document.getElementById('menu-toggle').addEventListener('click', function () {
+            let navMenu = document.getElementById('nav-menu');
+            navMenu.classList.toggle('open');
+        });
+    </script>
+</body>
+</html>

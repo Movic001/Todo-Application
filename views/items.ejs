@@ -1,0 +1,212 @@
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet"/>
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+   <title>Todo App</title>
+   <style>
+      /* Global Styles */
+      body {
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #ebe5e5;
+        }
+
+        /* Header (Navigation Bar) */
+        header {
+            background-color: #333;
+            color: white;
+            padding: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            top: 0;
+            left: 0;
+            width: 97%;
+            z-index: 1000;
+            height: 2rem;
+        }
+
+        header .logo a {
+            font-size: 24px;
+            font-weight: bold;
+            color: white;
+            text-decoration: none;
+        }
+
+        /* Navigation Links */
+        nav ul {
+            list-style-type: none;
+            padding: 0;
+            display: flex;
+            gap: 20px;
+        }
+
+        nav ul li {
+            padding: 10px;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+        }
+
+        nav ul li:hover {
+            background-color: #444;
+        }
+
+        /* Hamburger Menu (Visible on Mobile) */
+        .hamburger {
+            display: none;
+            font-size: 30px;
+            cursor: pointer;
+        }
+       .div-container {
+           max-width: 800px;
+           margin: 2rem auto;
+           padding: 1rem;
+           background-color: #fff;
+           box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+       }
+       ol {
+           padding-left: 1.5rem;
+       }
+       li {
+           margin-bottom: 1rem;
+           display: flex;
+           justify-content: space-between;
+           align-items: center;
+       }
+       form {
+           display: inline;
+       }
+       button {
+           background-color: #007BFF;
+           color: #fff;
+           border: none;
+           padding: 0.5rem 1rem;
+           cursor: pointer;
+           border-radius: 5px;
+           margin-left: 0.5rem;
+       }
+       button:hover {
+           background-color: #0056b3;
+       }
+
+/* Media Queries for Small Screens */
+@media screen and (max-width: 768px) {
+
+    header {
+            width: 90%;
+            height: 2rem;
+        }
+
+    button {
+           padding: 5px;
+           margin-left: 0rem;
+           margin: 0;
+       }
+       .div-container {
+           width: 400px;
+           padding: 1rem;
+           background-color: #fff;
+           box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+       }
+
+            nav ul {
+                display: none;
+                flex-direction: column;
+                width: 99%;
+                background-color: #333;
+                position: absolute;
+                top: 70px;
+                left: 0;
+                padding: 10px 0;
+                z-index: 999;
+                height: 12rem;
+            }
+
+            nav ul li {
+                width: 100%;
+                text-align: left;
+            }
+
+            nav ul li a {
+                padding: 0;
+                width: 100%;
+                display: block;
+                line-height: 0rem;
+            }
+
+            .hamburger {
+                display: block;
+            }
+
+            nav ul.open {
+                display: flex;
+            }
+
+            li {
+           margin-bottom: 1rem;
+           display: flex;
+           justify-content: space-between;
+           align-items: center;
+           flex-wrap: nowrap;
+       };
+        }
+   </style>
+</head>
+
+<body>
+
+    <header>
+        <div class="logo">
+            <a href="/">MOVIC-TodoApp</a>
+        </div>
+
+        <!-- Hamburger Menu for Mobile -->
+        <div class="hamburger" id="menu-toggle">
+            <i class="fas fa-bars"></i>
+        </div>
+
+        <!-- Navigation Links -->
+        <nav>
+            <ul id="nav-menu">
+                <li><a href="/">Home</a></li>
+                <li><a href="/todo">Todo</a></li>
+                <li><a href="/items">List</a></li>
+                <li><a href="/contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+   <div class="div-container">
+       <ol>
+           <% items.forEach((item) => { %>
+           <li>
+               <%= item.name %>
+               <div>
+                   <form method="get" action="/done/<%= item.id %>">
+                       <input type="checkbox" <%= item.done == 1 ? 'checked' : "" %>>
+                       <button type="submit">Mark as Done</button>
+                   </form>
+                   <form class="delete" method="get" action="/delete/<%= item.id %>">
+                       <button type="submit">Delete</button>
+                   </form>
+               </div>
+           </li>
+           <% }) %>
+       </ol>
+   </div>
+
+   <script>
+        // Toggle the visibility of the navigation menu on small screens
+        document.getElementById('menu-toggle').addEventListener('click', function () {
+            var navMenu = document.getElementById('nav-menu');
+            navMenu.classList.toggle('open');
+        });
+    </script>
+</body>
+</html>

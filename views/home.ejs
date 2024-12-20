@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TodoApp - Home</title>
+
+    <!-- Google Fonts and Font Awesome -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+
+    <!-- Internal Styles -->
+    <style>
+        /* Global Styles */
+        body {
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #ebe5e5;
+        }
+
+        /* Header (Navigation Bar) */
+        header {
+            background-color: #333;
+            color: white;
+            padding: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 98%;
+            z-index: 1000;
+            height: 2rem;
+        }
+
+        header .logo a {
+            font-size: 24px;
+            font-weight: bold;
+            color: white;
+            text-decoration: none;
+        }
+
+        /* Navigation Links */
+        nav ul {
+            list-style-type: none;
+            padding: 0;
+            display: flex;
+            gap: 20px;
+        }
+
+        nav ul li {
+            padding: 10px;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+        }
+
+        nav ul li:hover {
+            background-color: #444;
+        }
+
+        /* Hamburger Menu (Visible on Mobile) */
+        .hamburger {
+            display: none;
+            font-size: 30px;
+            cursor: pointer;
+        }
+
+        /* Main Content */
+        .container {
+            margin-top: 80px; /* To avoid overlap with fixed header */
+            padding: 20px;
+        }
+
+        h1 {
+            text-align: center;
+            font-size: 2em;
+            margin-bottom: 20px;
+        }
+
+        .features {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 20px;
+        }
+
+        .feature {
+            padding: 20px;
+            background-color: #f4f4f4;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .feature img {
+            width: 100%;
+            height: auto;
+            border-radius: 10px;
+            margin-top: 15px;
+        }
+
+        .text-center {
+            text-align: center;
+        }
+
+        .cta-button {
+            background-color: #333;
+            color: white;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+
+        .cta-button:hover {
+            background-color: #444;
+        }
+
+        /* Media Queries for Small Screens */
+        @media screen and (max-width: 768px) {
+            nav ul {
+                display: none;
+                flex-direction: column;
+                width: 100%;
+                background-color: #333;
+                position: absolute;
+                top: 70px;
+                left: 0;
+                padding: 10px 0;
+                z-index: 999;
+            }
+
+            nav ul li {
+                width: 100%;
+                text-align: left;
+            }
+
+            nav ul li a {
+                padding: 0;
+                width: 100%;
+                display: block;
+                line-height: 1rem;
+            }
+
+            .hamburger {
+                display: block;
+            }
+
+            nav ul.open {
+                display: flex;
+            }
+
+            .features {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media screen and (min-width: 769px) {
+            .features {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <div class="logo">
+            <a href="/">MOVIC-TodoApp</a>
+        </div>
+
+        <!-- Hamburger Menu for Mobile -->
+        <div class="hamburger" id="menu-toggle">
+            <i class="fas fa-bars"></i>
+        </div>
+
+        <nav>
+            <ul id="nav-menu">
+                <li><a href="/">Home</a></li>
+                <li><a href="/">Todo</a></li>
+                <li><a href="/items">List</a></li>
+                <li><a href="/contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <div class="container">
+
+        <!-- Welcome Section -->
+        <h1>Welcome to MOVIC-TodoApp</h1>
+
+        <!-- Features Grid -->
+        <div class="features">
+            <!-- Feature 1: Manage Tasks -->
+            <div class="feature">
+                <h2>Manage Your Tasks</h2>
+                <p>Keep track of your daily tasks and stay organized with TodoApp. Add, edit, and delete tasks as needed.</p>
+                <img alt="A person organizing tasks on a digital device" src="https://storage.googleapis.com/a1aa/image/QeFN4l2MQJVDLiL0AQHMcarSnJVewCXqs1bY8nkiCYkmuY8TA.jpg">
+            </div>
+
+            <div class="feature">
+                <h2>Create Lists</h2>
+                <p>Create custom lists to categorize your tasks. Whether it's for work, personal projects, or shopping, TodoApp has you covered.</p>
+                <img alt="A person creating a list on a digital device" src="https://storage.googleapis.com/a1aa/image/7mvJnsd1XqJhBJvDtlQvlW8D41JrUtz2ZqdZu57fqkBUXMeTA.jpg">
+            </div>
+
+            <!-- Feature 3: Stay Updated -->
+            <div class="feature">
+                <h2>Stay Updated</h2>
+                <p>Receive notifications and reminders for your tasks. Never miss a deadline again with TodoApp's alert system.</p>
+                <img alt="A person receiving notifications on a digital device" src="https://storage.googleapis.com/a1aa/image/Jt9nLZL9pHJ6MdKiAL3qqpaeGbzr0BocADwBxXfUsuLkuY8TA.jpg">
+            </div>
+
+            <div class="feature">
+                <h2>User-Friendly Interface</h2>
+                <p>Enjoy a clean and intuitive interface that makes task management a breeze. TodoApp is designed for ease of use.</p>
+                <img alt="A user-friendly interface on a digital device" src="https://storage.googleapis.com/a1aa/image/T67TZ5useTTzXSfLAAQR0lFe6QLHYdTKcHrwK6e9hf5R1FjfE.jpg">
+            </div>
+        </div>
+
+        <div class="text-center">
+            <h2>Get Started with TodoApp Today!</h2>
+            <p>Join thousands of users who are staying organized and productive with TodoApp. Get Started now and take control of your tasks.</p>
+            <a href="/todo" class="cta-button">Get Started</a>
+        </div>
+
+    </div>
+
+    <script>
+        document.getElementById('menu-toggle').addEventListener('click', function () {
+            var navMenu = document.getElementById('nav-menu');
+            navMenu.classList.toggle('open');
+        });
+    </script>
+
+</body>
+
+</html>

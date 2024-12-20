@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TodoApp - Contact</title>
+
+    <!-- Google Fonts and Font Awesome -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+
+    <!-- Internal Styles -->
+    <style>
+        /* Global Styles */
+        body {
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #ebe5e5;
+            box-sizing: border-box;
+        }
+
+        /* Header Styles */
+        header {
+            background-color: #333;
+            color: white;
+            padding: 10px 20px;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 97%;
+            z-index: 1000;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 3rem;
+        }
+
+        header .logo {
+            font-size: 24px;
+            font-weight: bold;
+        }
+        header .logo a{
+            color: white;
+            text-decoration: none;
+        }
+
+        /* Navbar Links */
+        nav ul {
+            list-style-type: none;
+            padding: 0;
+            display: flex;
+            gap: 20px;
+        }
+
+        nav ul li {
+            padding: 10px;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+        }
+
+        nav ul li:hover {
+            background-color: #444;
+        }
+
+        /* Hamburger Menu (Visible on Mobile) */
+        .hamburger {
+            display: none;
+            font-size: 30px;
+            cursor: pointer;
+        }
+
+        /* Main Content */
+        .container {
+            margin-top: 60px; /* Offset content to avoid header overlap */
+            padding: 20px;
+        }
+
+        h1 {
+            text-align: center;
+            font-size: 2em;
+            margin-bottom: 20px;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        form label {
+            font-weight: bold;
+        }
+
+        form input,
+        form textarea {
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        form button {
+            padding: 10px;
+            background-color: #333;
+            color: white;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+
+        form button:hover {
+            background-color: #555;
+        }
+
+        .contact-info {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .contact-info i {
+            margin-right: 8px;
+        }
+
+        /* Mobile Navbar Styles */
+        @media screen and (max-width: 768px) {
+            nav ul {
+                display: none;
+                flex-direction: column;
+                gap: 0;
+                align-items: center;
+                width: 100%;
+                background-color: #333;
+                padding: 10px;
+                position: absolute;
+                top: 60px;
+                left: 0;
+                z-index: 999;
+            }
+
+            nav ul li {
+                width: 100%;
+                text-align: left;
+            }
+
+            nav ul li a {
+                padding:10;
+                width: 100%;
+                display: block;
+                line-height: 2rem;
+            }
+
+            .hamburger {
+                display: block;
+            }
+
+            nav ul.open {
+                display: flex;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Header (Nav Bar) -->
+    <header>
+        <div class="logo">
+            <a href="/" class="text-white no-underline">MOVIC-TodoApp</a>
+        </div>
+
+        <!-- Hamburger Menu for Small Screens -->
+        <div class="hamburger" id="menu-toggle">
+            <i class="fas fa-bars"></i>
+        </div>
+
+        <!-- Navigation Links -->
+        <nav>
+            <ul id="nav-menu">
+                <li><a href="/">Home</a></li>
+                <li><a href="/todo">Todo</a></li>
+                <li><a href="/items">List</a></li>
+                <li><a href="/contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <div class="container">
+        <h1>Contact Us</h1>
+
+        <!-- Contact Form -->
+        <form class="contact-form">
+            <label for="name">Name</label>
+            <input type="text" id="name" name="name" required>
+
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" required>
+
+            <label for="message">Message</label>
+            <textarea id="message" name="message" rows="5" required></textarea>
+
+            <button type="submit">Send Message</button>
+        </form>
+
+        <div class="contact-info">
+            <p><i class="fas fa-phone"></i><a href="tel:07049608938">+234 7049608938</a></p>
+            <p><i class="fas fa-envelope"></i> contact@todoapp.com</p>
+            <p><i class="fas fa-map-marker-alt"></i> 123 Todo Street, Task City, TC 12345</p>
+        </div>
+    </div>
+
+    <script>
+        // Toggle the visibility of the navigation menu on small screens
+        document.getElementById('menu-toggle').addEventListener('click', function () {
+            let navMenu = document.getElementById('nav-menu');
+            navMenu.classList.toggle('open');
+        });
+    </script>
+
+</body>
+
+</html>
