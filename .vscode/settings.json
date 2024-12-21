@@ -1,0 +1,19 @@
+{
+    "sqltools.connections": [
+        {
+            "mysqlOptions": {
+                "authProtocol": "default",
+                "enableSsl": "Disabled"
+            },
+            "previewLimit": 50,
+            "server": "localhost",
+            "port": 9090,
+            "driver": "MySQL",
+            "name": "movic",
+            "group": "local",
+            "username": "admin",
+            "password": "admin",
+            "database": "/root"
+        }
+    ]
+}

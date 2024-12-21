@@ -5,29 +5,29 @@ const db =require('./db');
 
 app.set("view engine", "ejs");
 app.use(express.static('public'));
-//app.use(express.static(path.join(__dirname,'./public')));
-app.use(express.urlencoded({extended: true}));
-// some changes
-app.get('/list',(req,res)=>{
-    res.render('items')
-});
-app.get('/',(req,res)=>{
-    res.render('home')
-});
+    //app.use(express.static(path.join(__dirname,'./public')));
+    app.use(express.urlencoded({extended: true}));
+    // some changes
+    app.get('/list',(req,res)=>{
+        res.render('items')
+    });
+    app.get('/',(req,res)=>{
+        res.render('home')
+    });
 
-app.get('/todo',(req,res)=>{
-    res.render('todo');
-});
-app.get('/contact',(req,res)=>{
-    res.render('contact');
-});
+    app.get('/todo',(req,res)=>{
+        res.render('todo');
+    });
+    app.get('/contact',(req,res)=>{
+        res.render('contact');
+    });
 
 app.get('/items',(req,res)=>{
     db.all('SELECT * FROM todo', [], (err, rows) => {
         if (err) {
         res.status(500).send('internal Server Error:', err.message);
         } else {
-             console.log('data::::>>>>',rows);
+            // console.log('data::::>>>>',rows);
            // res.send(`items get sucessfully`);
              return res.render('items', {items: rows});
         };
